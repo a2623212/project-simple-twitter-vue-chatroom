@@ -1,6 +1,6 @@
 <template>
   <div id="AdminTweet">
-    <!-- adminNavbar.vue -->
+    <!-- adminNewNavbar.vue -->
     <div class="admin-navbar">
       <AdminNewNavbar :status="status" />
     </div>
