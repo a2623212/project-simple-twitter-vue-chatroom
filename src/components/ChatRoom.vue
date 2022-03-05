@@ -43,51 +43,23 @@
 </template>
 
 <script>
-const dummyData = [
-  {
-    userId: 1,
-    id: 100,
-    message: "今天天氣真好",
-    avatar: "https://pic.pimg.tw/holmes1234/1378818312-2328530189.jpg",
-    createAt: "Sat Mar 05 2022 13:06:40 GMT+0800 (台北標準時間)",
-  },
-  {
-    userId: 2,
-    id: 101,
-    message: "我剛睡醒",
-    avatar:
-      "https://www.teepr.com/wp-content/uploads/2019/12/79001361_1423192224541841_8985136557497253888_o.jpg",
-    createAt: "Sat Mar 05 2022 14:55:40 GMT+0800 (台北標準時間)",
-  },
-  {
-    userId: 3,
-    id: 102,
-    message: "我五點就起床了",
-    avatar: "https://i.imgur.com/XMnquqL.jpg",
-    createAt: "Sat Mar 05 2022 15:22:40 GMT+0800 (台北標準時間)",
-  },
-  {
-    userId: 14,
-    id: 103,
-    message: "喔！是喔！",
-    avatar: "https://i.imgur.com/XMnquqL.jpg",
-    createAt: "Sat Mar 05 2022 15:22:40 GMT+0800 (台北標準時間)",
-  },
-];
 import { mapState } from "vuex";
 import moment from "moment";
 moment.locale("zh-tw");
 
 export default {
+  name: "ChatRoom",
+  props: {
+    chatroom: {
+      type: Array,
+    },
+  },
   data() {
     return {
       message: "",
-      chatroom: [],
     };
   },
-  created() {
-    this.chatroom = dummyData;
-  },
+
   filters: {
     fromNow(dateTime) {
       return dateTime ? moment(dateTime).format("a h:mm") : "-";
@@ -95,12 +67,13 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.chatroom.push({
+      const message = {
         userId: this.currentUser.id,
         message: this.message,
         avatar: this.currentUser.avatar,
         createAt: new Date(),
-      });
+      };
+      this.$emit("after-submit", message);
       this.message = "";
     },
   },
