@@ -106,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 // 其他人的style
 .message-room {
-  border: 1px black solid;
+  border: 1px #e6ecf0 solid;
   width: 712px;
   height: 1061px;
   &-group {
