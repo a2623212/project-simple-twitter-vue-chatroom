@@ -6,7 +6,7 @@
     <div class="sidebar">
       <h4 class="title">上線使用者 (5)</h4>
       <div class="chat-list">
-        <ChatList />
+        <ChatList :current-status="currentStatus" />
       </div>
     </div>
     <div class="chatroom">
