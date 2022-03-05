@@ -13,6 +13,30 @@
             <span class="menu__item__title">首頁</span>
           </router-link>
         </li>
+        <!-- 之後要設定狀態列，目前用d-none -->
+        <li>
+          <router-link to="/chatroom/public" class="menu__item">
+            <img
+              src="../assets/message_or.png"
+              alt="index"
+              class="public d-none"
+            />
+            <img src="../assets/message_bc.png" alt="index" class="public" />
+            <span class="menu__item__title">公開聊天室</span>
+          </router-link>
+        </li>
+        <!-- 之後要設定狀態列，目前用d-none -->
+        <li>
+          <router-link to="/chatroom/private" class="menu__item">
+            <img
+              src="../assets/message_or.png"
+              alt="index"
+              class="private d-none"
+            />
+            <img src="../assets/message_bc.png" alt="index" class="private" />
+            <span class="menu__item__title">私人訊息</span>
+          </router-link>
+        </li>
         <li :class="{ active: currentStatus.isUser }">
           <router-link
             :to="{ name: 'user', params: { id: currentUser.id } }"
@@ -125,6 +149,8 @@ nav {
     }
   }
   .index,
+  .public,
+  .private,
   .user,
   .setting {
     width: 22.75px;

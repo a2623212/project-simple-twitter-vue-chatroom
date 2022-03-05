@@ -115,6 +115,8 @@ export default {
       isProcessing: false,
       currentStatus: {
         isIndex: false,
+        isPublic: false,
+        isPrivate: false,
         isUser: false,
         isSetting: true,
       },

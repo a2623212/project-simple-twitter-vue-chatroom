@@ -100,6 +100,8 @@ export default {
     return {
       currentStatus: {
         isIndex: false,
+        isPublic: false,
+        isPrivate: false,
         isUser: true,
         isSetting: false,
       },

@@ -39,6 +39,8 @@ export default {
       posts: [],
       currentStatus: {
         isIndex: true,
+        isPublic: false,
+        isPrivate: false,
         isUser: false,
         isSetting: false,
       },
