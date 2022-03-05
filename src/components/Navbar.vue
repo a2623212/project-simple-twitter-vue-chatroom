@@ -13,28 +13,48 @@
             <span class="menu__item__title">首頁</span>
           </router-link>
         </li>
-        <!-- 之後要設定狀態列，目前用d-none -->
+        <!-- 完成設定狀態列 --OK -->
         <li>
           <router-link to="/chatroom/public" class="menu__item">
             <img
               src="../assets/message_or.png"
               alt="index"
-              class="public d-none"
+              class="public"
+              v-if="currentStatus.isPublic"
             />
-            <img src="../assets/message_bc.png" alt="index" class="public" />
-            <span class="menu__item__title">公開聊天室</span>
+            <img
+              src="../assets/message_bc.png"
+              alt="index"
+              class="public"
+              v-else
+            />
+            <span
+              class="menu__item__title"
+              :class="{ active: currentStatus.isPublic }"
+              >公開聊天室</span
+            >
           </router-link>
         </li>
-        <!-- 之後要設定狀態列，目前用d-none -->
+        <!-- 完成設定狀態列 --OK-->
         <li>
           <router-link to="/chatroom/private" class="menu__item">
             <img
               src="../assets/message_or.png"
               alt="index"
-              class="private d-none"
+              class="private"
+              v-if="currentStatus.isPrivate"
             />
-            <img src="../assets/message_bc.png" alt="index" class="private" />
-            <span class="menu__item__title">私人訊息</span>
+            <img
+              src="../assets/message_bc.png"
+              alt="index"
+              class="private"
+              v-else
+            />
+            <span
+              class="menu__item__title"
+              :class="{ active: currentStatus.isPrivate }"
+              >私人訊息</span
+            >
           </router-link>
         </li>
         <li :class="{ active: currentStatus.isUser }">
@@ -130,6 +150,7 @@ nav {
     }
   }
   .active {
+    color: $orange;
     .menu__item {
       .user {
         filter: invert(47%) sepia(15%) saturate(7114%) hue-rotate(358deg)
