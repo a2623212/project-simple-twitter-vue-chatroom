@@ -5,6 +5,9 @@
     </div>
     <div class="sidebar">
       <h4 class="title">上線使用者 (5)</h4>
+      <div class="chat-list">
+        <ChatList />
+      </div>
     </div>
     <div class="chatroom">
       <h4 class="title">公開聊天室</h4>
@@ -14,10 +17,13 @@
 
 <script>
 import Navbar from "./../components/Navbar.vue";
+import ChatList from "./../components/ChatList.vue";
+
 export default {
   name: "PublicChatRoom",
   components: {
     Navbar,
+    ChatList,
   },
   data() {
     return {
