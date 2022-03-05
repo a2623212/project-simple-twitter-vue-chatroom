@@ -11,6 +11,9 @@
     </div>
     <div class="chatroom">
       <h4 class="title">公開聊天室</h4>
+      <!-- try on  -->
+      <button @click="send">send</button>
+      <!-- try on  -->
     </div>
   </div>
 </template>
@@ -18,6 +21,7 @@
 <script>
 import Navbar from "./../components/Navbar.vue";
 import ChatList from "./../components/ChatList.vue";
+// import VueSocketIO from "vue-socket.io";
 
 export default {
   name: "PublicChatRoom",
@@ -34,7 +38,18 @@ export default {
         isUser: false,
         isSetting: false,
       },
+      text: "",
+      // socket: new VueSocketIO({
+      //   debug: true,
+      //   connection:
+      //     "https://twitter-chatroom-challenge.herokuapp.com/api/chatroom",
+      // }),
     };
+  },
+  methods: {
+    async send() {
+      console.log(this.socket.io.connected);
+    },
   },
 };
 </script>
