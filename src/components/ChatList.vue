@@ -25,11 +25,13 @@
         <div class="info__name">
           <p class="name">Apple <span class="account">@apple</span></p>
         </div>
-        <div class="info__message">
+        <!-- 透過狀態列控制，可以讓public和private聊天室共用元件 -->
+        <div class="info__message" v-show="currentStatus.isPrivate">
           入校書：性年了通個，了水值來成熱成識西益孩、文長這以母我面，果子臺歡麼……面山有組花喜們西，地從場麼馬
         </div>
       </div>
-      <div class="time">5日內</div>
+      <!-- 透過狀態列控制，可以讓public和private聊天室共用元件 -->
+      <div class="time" v-show="currentStatus.isPrivate">5秒</div>
     </div>
     <div class="item">
       <div class="avatar">
@@ -39,11 +41,13 @@
         <div class="info__name">
           <p class="name">Apple <span class="account">@apple</span></p>
         </div>
-        <div class="info__message">
+        <!-- 透過狀態列控制，可以讓public和private聊天室共用元件 -->
+        <div class="info__message" v-show="currentStatus.isPrivate">
           入校書：性年了通個，了水值來成熱成識西益孩、文長這以母我面，果子臺歡麼……面山有組花喜們西，地從場麼馬
         </div>
       </div>
-      <div class="time">5月16日</div>
+      <!-- 透過狀態列控制，可以讓public和private聊天室共用元件 -->
+      <div class="time" v-show="currentStatus.isPrivate">5秒</div>
     </div>
   </div>
 </template>

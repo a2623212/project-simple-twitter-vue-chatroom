@@ -66,6 +66,13 @@ const dummyData = [
     avatar: "https://i.imgur.com/XMnquqL.jpg",
     createAt: "Sat Mar 05 2022 15:22:40 GMT+0800 (台北標準時間)",
   },
+  {
+    userId: 14,
+    id: 103,
+    message: "喔！是喔！",
+    avatar: "https://i.imgur.com/XMnquqL.jpg",
+    createAt: "Sat Mar 05 2022 15:22:40 GMT+0800 (台北標準時間)",
+  },
 ];
 import { mapState } from "vuex";
 import moment from "moment";
@@ -106,9 +113,9 @@ export default {
 <style lang="scss" scoped>
 // 其他人的style
 .message-room {
-  border: 1px #e6ecf0 solid;
+  // border-right: 1px #e6ecf0 solid;
   width: 712px;
-  height: 1061px;
+  max-height: 1061px;
   &-group {
     display: flex;
     margin: 20px;
@@ -151,9 +158,13 @@ export default {
   }
 }
 .input-group {
+  position: fixed;
+  bottom: 0px;
   width: 712px;
   height: 64px;
-  border: 1px solid #e6ecf0;
+  border: {
+    top: 1px solid #e6ecf0;
+  }
   display: flex;
   align-items: center;
   &__input {

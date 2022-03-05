@@ -4,13 +4,13 @@
       <Navbar :current-status="currentStatus" />
     </div>
     <div class="sidebar">
-      <h4 class="title">上線使用者 (5)</h4>
+      <h4 class="title">訊息</h4>
       <div class="chat-list">
         <ChatList :current-status="currentStatus" />
       </div>
     </div>
     <div class="chatroom-section">
-      <h4 class="title">公開聊天室</h4>
+      <div class="title">Apple <span>@apple</span></div>
       <ChatRoom />
     </div>
   </div>
@@ -33,8 +33,8 @@ export default {
     return {
       currentStatus: {
         isIndex: false,
-        isPublic: true,
-        isPrivate: false,
+        isPublic: false,
+        isPrivate: true,
         isUser: false,
         isSetting: false,
       },
@@ -64,12 +64,18 @@ export default {
 .sidebar {
   //維持比例用，隨時可以刪除
   width: 414px;
+  border-left: 1px solid $borderColor;
 }
 .chatroom-section {
   border-left: 1px solid $borderColor;
 }
-h4 {
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 74px;
   font-size: 24px;
+  font-weight: 700;
   color: #171725;
   padding: {
     top: 20px;
@@ -77,5 +83,13 @@ h4 {
     bottom: 20px;
   }
   border-bottom: 1px solid $borderColor;
+}
+span {
+  display: block;
+  color: $messageTextColor;
+  font: {
+    size: 16px;
+    weight: 400;
+  }
 }
 </style>
