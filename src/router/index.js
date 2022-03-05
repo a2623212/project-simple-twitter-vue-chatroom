@@ -102,6 +102,18 @@ const routes = [
     name: "setting",
     component: () => import("../views/setting.vue"),
   },
+  // public chatroom
+  {
+    path: "/chatroom/public",
+    name: "public-chat-room",
+    component: () => import("../views/PublicChatRoom.vue"),
+  },
+  // private chatroom
+  {
+    path: "/chatroom/private",
+    name: "private-chat-room",
+    component: BlankPage,
+  },
   // admin
   {
     path: "/admin",
