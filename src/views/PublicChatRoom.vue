@@ -68,7 +68,7 @@ export default {
   },
   mounted() {
     this.socket = socket;
-    this.socket.on("allmessage", function (data) {
+    this.socket.on("allMessage", function (data) {
       console.log("data", data);
       this.chatroom.push(data);
     });
@@ -89,9 +89,9 @@ export default {
   },
   methods: {
     handelMessageSubmit(message) {
-      console.log("sent message:", message);
+      console.log("sentmessage:", message);
 
-      this.socket.emit("user connected", {
+      this.socket.emit("sentMessage", {
         message,
       });
       this.chatroom.push(message);
