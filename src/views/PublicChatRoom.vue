@@ -21,7 +21,7 @@ import Navbar from "./../components/Navbar.vue";
 import ChatList from "./../components/ChatList.vue";
 import ChatRoom from "./../components/ChatRoom.vue";
 import { io } from "socket.io-client";
-const socket = io("https://twitter-chatroom-challenge.herokuapp.com", {
+const socket = io("https://twitter-chatroom-challenge.herokuapp.com/", {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd",
