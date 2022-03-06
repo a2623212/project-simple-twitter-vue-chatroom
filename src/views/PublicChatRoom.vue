@@ -22,7 +22,7 @@ import ChatList from "./../components/ChatList.vue";
 import ChatRoom from "./../components/ChatRoom.vue";
 import { io } from "socket.io-client";
 const socket = io("https://twitter-chatroom-challenge.herokuapp.com", {
-  withCredentials: true,
+  withCredentials: false,
 });
 const dummyData = [
   {
