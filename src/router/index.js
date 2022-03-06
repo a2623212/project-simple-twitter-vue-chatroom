@@ -112,7 +112,7 @@ const routes = [
   {
     path: "/chatroom/private",
     name: "private-chat-room",
-    component: BlankPage,
+    component: () => import("../views/DirectChatRoom.vue"),
   },
   // admin
   {
