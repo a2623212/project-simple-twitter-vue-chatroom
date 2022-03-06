@@ -33,14 +33,6 @@ const dummyData = [
     createAt: "Sat Mar 05 2022 13:06:40 GMT+0800 (台北標準時間)",
   },
   {
-    userId: 2,
-    id: 101,
-    message: "我剛睡醒",
-    avatar:
-      "https://www.teepr.com/wp-content/uploads/2019/12/79001361_1423192224541841_8985136557497253888_o.jpg",
-    createAt: "Sat Mar 05 2022 14:55:40 GMT+0800 (台北標準時間)",
-  },
-  {
     userId: 3,
     id: 102,
     message: "我五點就起床了",
@@ -50,7 +42,7 @@ const dummyData = [
   {
     userId: 14,
     id: 103,
-    message: "喔！是喔！",
+    message: "上面這些都是假資料，前端連不到後端的socket",
     avatar: "https://i.imgur.com/XMnquqL.jpg",
     createAt: "Sat Mar 05 2022 15:22:40 GMT+0800 (台北標準時間)",
   },
@@ -70,7 +62,11 @@ export default {
     this.socket = socket;
     this.socket.on("allMessage", function (data) {
       console.log("data", data);
+      console.log("connected");
       this.chatroom.push(data);
+    });
+    this.socket.on("connect", () => {
+      console.log(socket.connected); // true
     });
   },
   data() {
