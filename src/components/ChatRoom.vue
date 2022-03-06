@@ -87,7 +87,7 @@ export default {
 // 其他人的style
 .message-room {
   // border-right: 1px #e6ecf0 solid;
-  width: 712px;
+  width: 680px;
   max-height: 1061px;
   &-group {
     display: flex;

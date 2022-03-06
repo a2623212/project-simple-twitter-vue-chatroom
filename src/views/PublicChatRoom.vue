@@ -21,12 +21,9 @@ import Navbar from "./../components/Navbar.vue";
 import ChatList from "./../components/ChatList.vue";
 import ChatRoom from "./../components/ChatRoom.vue";
 import { io } from "socket.io-client";
-const socket = io(
-  "https://twitter-chatroom-challenge.herokuapp.com/api/chatroom",
-  {
-    withCredentials: true,
-  }
-);
+const socket = io("https://twitter-chatroom-challenge.herokuapp.com", {
+  withCredentials: true,
+});
 const dummyData = [
   {
     userId: 1,
@@ -71,6 +68,10 @@ export default {
   },
   mounted() {
     this.socket = socket;
+    this.socket.on("allmessage", function (data) {
+      console.log("data", data);
+      this.chatroom.push(data);
+    });
   },
   data() {
     return {
@@ -90,17 +91,10 @@ export default {
     handelMessageSubmit(message) {
       console.log("sent message:", message);
 
-      this.socket.emit("sendMessage", {
+      this.socket.emit("user connected", {
         message,
       });
       this.chatroom.push(message);
-    },
-    getTheMessage() {
-      socket.on("allMessage", {
-        function(message) {
-          console.log(message);
-        },
-      });
     },
   },
 };
